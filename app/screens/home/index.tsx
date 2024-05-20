@@ -3,6 +3,7 @@ import { Button, FlatList, Text, View } from 'react-native';
 import { Header } from './header';
 import { styles } from './styles';
 import { TodoItem } from './todoItem';
+import { Link, router } from 'expo-router';
 
 
 const HomeScreen = ({navigation, route}) => {
@@ -10,7 +11,6 @@ const HomeScreen = ({navigation, route}) => {
         {text: "todo note here", key: 1},
         {text: "i need food", key: 2},
         {text: "FOOD", key: 3},
-
     ])
 
     const addNoteHandler = (saveNoteHandler) => {
@@ -45,7 +45,7 @@ const HomeScreen = ({navigation, route}) => {
                 </View>
                 <Button
                     title = {"New notes screen"} 
-                    onPress={addNoteHandler} 
+                    onPress={()=>router.push('screens/list/noteScreen')} 
                 />
                 <Button
                     title = {"refresh data"} 
